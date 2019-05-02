@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BYARENT - CART</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery.js"></script>
+    <script src="js/holder.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/simpleCart.js"></script>
+
+    <style>
+      .images{
+        width: 250px;
+        height: auto;
+      }
+    </style>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">BYARENT</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+          
+                <div class="collapse navbar-collapse" id="navbarsExample04">
+                        <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">Home</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Cart <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/sale">For sale</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="/contact">Contact</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link" href="/login">Login</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link" href="/signup">Sign up</a>
+                                </li>
+                              </ul>
+                </div>
+              </nav>
+
+              <div class="mt-5 text-center container mb-4">
+                <h3 class=" display-3">
+                  Your cart
+                </h3>
+                <%# loggedin %>
+                
+                
+                  <% if ( loggedin ) { %>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <!-- create a checkout button -->
+                      <a href="javascript:;" class="simpleCart_checkout btn btn-primary">Checkout</a>
+                      <!-- button to empty the cart -->
+                      <a href="javascript:;" class="simpleCart_empty btn btn-outline-primary">Empty your cart</a>
+                    </div>
+                  <% } else { %>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <!-- create a checkout button -->
+                      <a href="/login" class="btn btn-primary">Login to checkout</a>
+                      <!-- button to empty the cart -->
+                      <a href="javascript:;" class="simpleCart_empty btn btn-outline-primary">Empty your cart</a>
+                    </div>
+                  <% } %>
+                
+                <!-- <div class="btn-group" role="group" aria-label="Basic example">
+                  
+                  <a href="javascript:;" class="simpleCart_checkout btn btn-primary">Checkout</a>
+                  
+                  <a href="javascript:;" class="simpleCart_empty btn btn-outline-primary">Empty your cart</a>
+                </div> -->
+              </div>
+
+
+              
+
+              <div href="javascript:;" class="simpleCart_items table-responsive"></div>
+              <script>
+                
+                  
+                
+              </script>
+              <%# JSON.parse(user); console.log('===',user, typeof JSON.parse(user) ); %>
+              <% if (!user) { %>
+              <% user1 = JSON.parse(user); %>
+              <% } %>
+              <%#  console.log('--------', (  user ) ) %>
+              <script>
+                    simpleCart.currency({
+                        code: "GHC",
+                        name: "Ghanian Cedis",
+                        symbol: "&#8373;"
+                    });
+                  simpleCart({
+                    cartStyle :"table",
+      
+                    cartColumns: [
+                      {attr:"owner", label:"Source"},
+                      {view:"image" , attr:"thumb", label: 'Image'},
+                      { attr: "name" , label: "Name" },
+                      { attr: "price" , label: "Price", view: "currency" },
+                      // { view: "decrement" , label: false , text: "-" } ,
+                      { attr: "quantity" , label: "Qty" },
+                      // { view: "increment" , label: false , text: "+" } ,
+                      // { attr: "total" , label: "Price", view: "currency" } ,
+                      { view: "remove" , text: "Remove from cart" , label: false }
+                              ],
+      
+                  currency: "GHC",
+                  checkout: {
+                      type: "SendForm" ,
+                      url: "/sendcart" ,
+                      method: "POST" ,
+                      success: "/" ,
+                      cancel: "/?order=no" ,
+                      extra_data: {
+                          fullname: '<%= (user ? user1.fullname : '') %>',
+                          user_id: '<%= (user ? user1.id : '') %>',
+                          user_email: '<%= (user ? user1.email : '') %>'
+                      }
+              }
+              });
+      
+      
+            //	simpleCart.bind( 'beforeCheckout' , function( data ){
+      
+              //data.fullname: document.getElementById("fullname").value;
+              //data.address: document.getElementById("address").value;
+              //data.mobile: document.getElementById("mobile").value;
+          //	});
+      
+      </script>
+      
+      
+      
+    
+</body>
+</html>

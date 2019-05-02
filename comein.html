@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up & Log in</title>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/holder.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/simpleCart.js"></script>
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
+        <a class="navbar-brand" href="#">BYARENT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="sale.html">For sale</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search">
+          </form>
+        </div>
+      </nav>
+
+    <div class="container h-100 d-flex justify-content-center pt-3">
+
+        <div class="card mx-auto my-auto" style="width: 22rem;">
+         <div class="card-body">
+         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+       <li class="nav-item">
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sign up</a>
+       </li>
+       </ul>
+       <div class="tab-content" id="myTabContent">
+       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+               <div class="display-4 pb-3">
+               Welcome back!
+             </div>
+
+         <form class="" role="form" action="" method="post">
+         <div class="form-group">
+           <label for="email">Email address</label>
+           <input type="email" class="form-control" name="email" aria-describedby="email" placeholder="Enter email">
+           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+         </div>
+         <div class="form-group">
+           <label for="password">Password</label>
+           <input type="password" class="form-control" name="password" placeholder="Password">
+         </div>
+         <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+       </form>
+
+
+
+       </div>
+       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+       <div class="display-4 pb-3">
+         Hey there!
+       </div>
+
+
+             <form class="" role="form" action="" method="post">
+               <div class="form-group">
+                 <label for="exampleInputEmail1">Fullname</label>
+                 <input type="text" class="form-control" name="Rfullname" aria-describedby="fullname" placeholder="Enter fullname">
+               </div>
+               <div class="form-group">
+                 <label for="exampleInputEmail1">Email address</label>
+                 <input type="email" class="form-control" name="Remail" aria-describedby="email" placeholder="Enter email">
+                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+               </div>
+               <div class="form-group">
+                 <label for="exampleInputPassword1">Password</label>
+                 <input type="password" class="form-control" name="Rpassword" aria-describedby="password" placeholder="Password">
+               </div>
+               <input type="submit" name="Rsubmit" value="Submit" class="btn btn-primary">
+             </form>
+
+
+
+       </div>
+       </div>
+         </div>
+       </div>
+
+</div>
+</body>
+</html>

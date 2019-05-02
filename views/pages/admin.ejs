@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin backend</title>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/holder.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body class="">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">BYARENT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+        <div class="container">
+            <div class="mt-5 text-center container mb-4">
+                <h3 class=" display-3">
+                    Add house for sale
+                </h3>
+            </div>
+            
+            <div>
+                <div class="row">
+                    <div class="col-md-4 order-md-2 mb-4">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="text-muted">Number of houses for sale</span>
+                            <span class="badge badge-secondary badge-pill">3</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Product name</h6>
+                                    <small class="text-muted">Brief description</small>
+                                </div>
+                                <span class="text-muted">$12</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Second product</h6>
+                                    <small class="text-muted">Brief description</small>
+                                </div>
+                                <span class="text-muted">$8</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">Third item</h6>
+                                    <small class="text-muted">Brief description</small>
+                                </div>
+                                <span class="text-muted">$5</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between bg-light">
+                                <div class="text-success">
+                                    <h6 class="my-0">Promo code</h6>
+                                    <small>EXAMPLECODE</small>
+                                </div>
+                                <span class="text-success">-$5</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <span>Total (GHN)</span>
+                                <strong>$ 20</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3">Housing details</h4>
+                        <form class="needs-validation" enctype="multipart/form-data" action="/addhouse" method="POST" novalidate="">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="type">House type</label>
+                                    <input type="text"
+                                        name="type" class="form-control" id="type" placeholder="Duplex, Bongalow, etc."
+                                        value="" required="">
+                                    <div class="invalid-feedback">
+                                        House type is required.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="price">Price</label>
+                                    <input type="number" name="price" class="form-control" id="price" placeholder="Price in cedis" value=""
+                                        required="">
+                                    <div class="invalid-feedback">
+                                        Price is required.
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <label for="description">Description of the house</label>
+                                    <textarea class="form-control" id="description"
+                                        name="description" maxlength="600"
+                                        placeholder="Give a description of the house. The location or address, environment and neighbourhood, what's it's built with etc. A general nice description."
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a description.
+                                </div>
+                            </div>
+            
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <label for="pictures">Pictures of the house</label>
+                                    <input type="file" name="pictures" class="form-control-file" id="image" accept="image/*" multiple>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter pictures of the house.
+                                </div>
+                            </div>
+            
+                            <hr class="mb-4">
+                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Put house up for sale">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>
